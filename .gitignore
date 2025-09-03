@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+builds/
+
+# mac files
+.DS_Store
+.vscode/settings.json
