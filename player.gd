@@ -19,24 +19,45 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+		
+	$AnimatedSprite2D.play()
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.animation = "swim"
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.rotation = 0
+		$CollisionShape2D.rotation = 0
+		$AnimatedSprite2D.flip_v = false
+		
+		if $AnimatedSprite2D.flip_h == true:
+			$CollisionShape2D.position.x = 13
+		else:
+			$CollisionShape2D.position.x = -13
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	
+		
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_v = false
+		$CollisionShape2D.rotation = 1.5708
 		# See the note below about the following boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "up"
-		$AnimatedSprite2D.flip_v = velocity.y > 0
+		$CollisionShape2D.rotation = 0
+
+		if velocity.y > 0:
+			$CollisionShape2D.position.x = -13
+			if $AnimatedSprite2D.flip_h == false:
+				$AnimatedSprite2D.rotation = 1.5708
+			else:
+				$AnimatedSprite2D.rotation = -1.5708
+		else:
+			$CollisionShape2D.position.x = 13
+			if $AnimatedSprite2D.flip_h == false:
+				$AnimatedSprite2D.rotation = -1.5708
+			else:
+				$AnimatedSprite2D.rotation = 1.5708
 	
 func start(pos):
 	position = pos
