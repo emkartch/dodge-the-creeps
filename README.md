@@ -17,5 +17,4 @@ Assets from:
 
 - Godot Docs - https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html  
 - Free Game Assets (GUI, Sprite, Tilesets) - https://free-game-assets.itch.io/octopus-jellyfish-shark-and-turtle-free-sprite-pixel-art and https://free-game-assets.itch.io/free-swimming-characters-animation-pixel-art  
-- Plugin by b0tlanner "Godot Gif" - https://godotengine.org/asset-library/asset/2255  
 - Background by Lemat Works - https://www.lematworks.com  
