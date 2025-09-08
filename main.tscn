@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dbnf7dkn4ei02"]
+[gd_scene load_steps=10 format=4 uid="uid://dbnf7dkn4ei02"]
 
 [ext_resource type="Script" uid="uid://bynldfy1i4fjh" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ct6lsobeppdtr" path="res://mob.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://p85qefyiuast" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://jy7toaih6p57" path="res://art/backgroundWaterPhoto.jpg" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://do7n65tbc3fgy" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://dgfxiorb7ndkr" path="res://art/gameover.wav" id="5_lquwl"]
 
@@ -25,13 +26,10 @@ loop = true
 script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("2_1bvp3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.6699, 0.72996, 0.77, 1)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_7mycd")
 
 [node name="Player" parent="." instance=ExtResource("2_h2yge")]
 
